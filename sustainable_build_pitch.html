@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Our Freedom | FYRE Army x Victoria McGowan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .side-nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 280px;
+            background: linear-gradient(180deg, #BF5700 0%, #E67E22 100%);
+            padding: 2rem 1rem;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.2);
+        }
+        
+        .side-nav-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .side-nav-logo h2 {
+            color: white;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .side-nav-logo p {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        .side-nav ul {
+            list-style: none;
+        }
+        
+        .side-nav li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .side-nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .side-nav a:hover, .side-nav a.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(5px);
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #BF5700 0%, #E67E22 100%);
+            color: white;
+            padding: 5rem 3rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .fyre-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            letter-spacing: 3px;
+        }
+        
+        .creator-name {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .hero .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        section {
+            padding: 4rem 3rem;
+            background: white;
+            margin-bottom: 2px;
+        }
+        
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            border-bottom: 4px solid #BF5700;
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem 0;
+            color: #E67E22;
+        }
+        
+        h4 {
+            font-size: 1.5rem;
+            color: #BF5700;
+            margin: 1.5rem 0 1rem 0;
+        }
+        
+        .timeline {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            border-left: 5px solid #BF5700;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-radius: 5px;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .partner-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid #BF5700;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(191,87,0,0.3);
+        }
+        
+        .partner-card h4 {
+            color: #E67E22;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .revenue-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .revenue-item {
+            background: linear-gradient(135deg, #BF5700 0%, #E67E22 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .revenue-amount {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .value-prop {
+            background: rgba(191,87,0,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #E67E22;
+        }
+        
+        .value-prop h4 {
+            color: #BF5700;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #BF5700 0%, #E67E22 100%);
+            color: white;
+            padding: 5rem 3rem;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            border-bottom-color: white;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #BF5700;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 3px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .proven-track {
+            background: linear-gradient(135deg, rgba(191,87,0,0.1) 0%, rgba(230,126,34,0.1) 100%);
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 5px solid #BF5700;
+        }
+
+        .brand-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .brand-logo {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #BF5700;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 2px solid #E67E22;
+        }
+
+        .schedule-table {
+            width: 100%;
+            margin-top: 2rem;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .schedule-table th {
+            background: linear-gradient(135deg, #BF5700 0%, #E67E22 100%);
+            color: white;
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .schedule-table td {
+            padding: 1.2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .schedule-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .content-card {
+            background: white;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            border-left: 5px solid #E67E22;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .episode-arc {
+            background: linear-gradient(135deg, rgba(191,87,0,0.05) 0%, rgba(230,126,34,0.05) 100%);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            border: 2px solid #E67E22;
+        }
+
+        ul {
+            margin-left: 2rem;
+            line-height: 2;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .contact-card h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .side-nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="side-nav">
+        <div class="side-nav-logo">
+            <h2>🔥 FYRE ARMY</h2>
+            <p>Building Our Freedom</p>
+        </div>
+        <ul>
+            <li><a href="#home" class="active">🏠 Home</a></li>
+            <li><a href="#overview">📋 Overview</a></li>
+            <li><a href="#track-record">🏆 Track Record</a></li>
+            <li><a href="#story">📖 Story Arc</a></li>
+            <li><a href="#content-schedule">📅 Content Schedule</a></li>
+            <li><a href="#filming-plan">🎬 Filming Plan</a></li>
+            <li><a href="#episode-arcs">🎭 Episode Writing</a></li>
+            <li><a href="#timeline">⏱️ Timeline</a></li>
+            <li><a href="#partners">🤝 Partners Needed</a></li>
+            <li><a href="#skanska">🏗️ Skanska Opportunity</a></li>
+            <li><a href="#revenue">💰 Revenue Model</a></li>
+            <li><a href="#deliverables">📦 Deliverables</a></li>
+            <li><a href="#contact">📞 Let's Build</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="hero" id="home">
+            <div class="fyre-brand">🔥 FYRE ARMY PRESENTS 🔥</div>
+            <h1>Building Our Freedom</h1>
+            <div class="creator-name">with Victoria McGowan</div>
+            <p class="tagline">A 12-Month Documentary Content Series: From Financial Abuse to Sustainable Homeownership</p>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">10.6K</span>
+                    <span class="stat-label">TikTok Followers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">45K</span>
+                    <span class="stat-label">Total Likes</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1M+</span>
+                    <span class="stat-label">Monthly Impressions</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">7-8%</span>
+                    <span class="stat-label">Engagement Rate</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3%</span>
+                    <span class="stat-label">Live Conversion</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Top 20%</span>
+                    <span class="stat-label">Platform Ranking</span>
+                </div>
+            </div>
+        </div>
+        
+        <section id="overview">
+            <h2>Executive Overview</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 1.5rem; line-height: 1.8;">Partner with <strong>Victoria McGowan</strong> and <strong>FYRE Army</strong>, a proven content creator with a demonstrated track record of delivering measurable results for premium brands including OLAY, Fenty Beauty, and Anker. Now embarking on an authentic 12-month documentary series documenting the journey from economic hardship to sustainable homeownership.</p>
+            
+            <p style="font-size: 1.2rem; line-height: 1.8;">This isn't just content—it's a <span class="highlight">living prototype for millennial affordable housing solutions</span> that addresses today's housing crisis with real-world application, documented in real-time with professional-grade storytelling.</p>
+            
+            <h3>The Core Story</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8;">Single mother of three children (including one special needs teen) rebuilds life after escaping financial abuse. Starting with $4,000/month income, 600 sq ft suite, and three kids to homeschool, Victoria will document every step toward land ownership and building a sustainable pod home—proving that the American Dream is still achievable with innovation, determination, and community support.</p>
+            
+            <h3>Why This Resonates Now</h3>
+            <ul style="font-size: 1.1rem;">
+                <li><strong>Housing Crisis:</strong> Housing costs have outpaced wages by 300%+ for millennials, creating unprecedented demand for alternative solutions</li>
+                <li><strong>Rising Interest:</strong> Alternative housing (pods, containers, tiny homes) searches up 400% in past 2 years</li>
+                <li><strong>Content Performance:</strong> Sustainable living content generates 2-3x engagement vs traditional home content</li>
+                <li><strong>Authentic Storytelling:</strong> Struggle-to-success narratives drive 40-60% higher brand loyalty and conversion rates</li>
+                <li><strong>Proven Creator:</strong> Victoria's 3% live conversion rate vs 0.5-1% industry average demonstrates ability to drive results</li>
+            </ul>
+        </section>
+
+        <section id="track-record">
+            <h2>Proven Performance Track Record</h2>
+            
+            <div class="proven-track">
+                <h3 style="margin-top: 0;">By The Numbers</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <h4>Season 1 Performance</h4>
+                        <ul>
+                            <li><strong>$3K+ GMV</strong> generated</li>
+                            <li><strong>200+ items</strong> sold</li>
+                            <li><strong>45 products</strong> in 12 sessions</li>
+                            <li><strong>$100-150</strong> avg GMV per session</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Platform Recognition</h4>
+                        <ul>
+                            <li><strong>Top 20%</strong> fast-growing seller</li>
+                            <li><strong>Top 20%</strong> overall performance</li>
+                            <li><strong>65% follower growth</strong> in 30 days</li>
+                            <li><strong>3,875</strong> new followers monthly</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Engagement Metrics</h4>
+                        <ul>
+                            <li><strong>1M+ impressions</strong> monthly</li>
+                            <li><strong>800K+ views</strong> on content</li>
+                            <li><strong>56K product views</strong> generated</li>
+                            <li><strong>7-8% engagement</strong> vs 1-3% standard</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Premium Brand Partnerships</h3>
+                <div class="brand-logos">
+                    <span class="brand-logo">OLAY</span>
+                    <span class="brand-logo">ANKER</span>
+                    <span class="brand-logo">FENTY BEAUTY</span>
+                    <span class="brand-logo">COLMI</span>
+                    <span class="brand-logo">PURITO</span>
+                    <span class="brand-logo">DRMTLGY</span>
+                    <span class="brand-logo">UUH LUGGAGE</span>
+                    <span class="brand-logo">MYSMILE</span>
+                </div>
+
+                <h3>Agency Representation</h3>
+                <ul>
+                    <li><strong>Talenture Agency</strong> - 3-year contract</li>
+                    <li><strong>Shop Agency</strong> - 2-year contract</li>
+                    <li><strong>TikTok Shop Affiliate</strong> - Active program</li>
+                    <li><strong>Temu Affiliate</strong> - Active program</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="story">
+            <h2>The Complete Story Arc</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">A four-act structure spanning 12 months, with each act building emotional investment and demonstrating tangible progress toward the ultimate goal of land ownership and sustainable living.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Act 1: The Starting Line (Months 1-3) - "Hope Against the Odds"</h4>
+                    <p><strong>Emotional Core:</strong> Fresh start, vulnerability, determination, hope emerging from darkness</p>
+                    <p><strong>Primary Content Themes:</strong></p>
+                    <ul>
+                        <li>Budgeting $4K/month with three kids - transparent money management</li>
+                        <li>Homeschooling setup and daily routines with special needs accommodations</li>
+                        <li>Launching AI app and snack box business while working 60hr/week AI training job</li>
+                        <li>Researching land options, sheriff auctions, and alternative housing</li>
+                        <li>Building community and finding resources</li>
+                        <li>Small wins that build momentum</li>
+                    </ul>
+                    <p><strong>Product Integration Opportunities:</strong> Budget home organization, meal prep tools, educational materials, productivity apps, affordable furniture</p>
+                    <p><strong>Key Milestones:</strong> First $1,000 saved, first snack box sale, first land auction attended, AI app beta launch</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Act 2: Building Momentum (Months 4-6) - "The Dream Takes Shape"</h4>
+                    <p><strong>Emotional Core:</strong> Progress becoming real, community support, overcoming obstacles, vision crystallizing</p>
+                    <p><strong>Primary Content Themes:</strong></p>
+                    <ul>
+                        <li>Hitting major savings milestones ($5K, $10K, $15K)</li>
+                        <li>Attending land auctions and sheriff sales - the hunt</li>
+                        <li>Networking with builders, contractors, and alternative housing experts</li>
+                        <li>Product testing for the future build (solar panels, water systems)</li>
+                        <li>Kids' involvement and education about sustainable living</li>
+                        <li>Business growth - snack boxes scaling, AI app gaining users</li>
+                    </ul>
+                    <p><strong>Product Integration Opportunities:</strong> Sustainable building materials, solar testing equipment, land research tools, construction planning software</p>
+                    <p><strong>Key Milestones:</strong> Land secured, $15K saved, partnership agreements signed, build design finalized</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Act 3: The Build Begins (Months 7-9) - "Dreams Becoming Reality"</h4>
+                    <p><strong>Emotional Core:</strong> Tangible progress, family teamwork, problem-solving, creation</p>
+                    <p><strong>Primary Content Themes:</strong></p>
+                    <ul>
+                        <li>Land preparation and foundation work</li>
+                        <li>Pod/container home delivery and installation</li>
+                        <li>Solar panel system installation and testing</li>
+                        <li>Water and septic system setup</li>
+                        <li>Kids helping build their future - hands-on education</li>
+                        <li>Challenges overcome and lessons learned</li>
+                        <li>Community involvement and support</li>
+                    </ul>
+                    <p><strong>Product Integration Opportunities:</strong> Construction tools, sustainable systems, DIY equipment, safety gear, building materials</p>
+                    <p><strong>Key Milestones:</strong> Structure in place, utilities connected, first night camping on the land</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Act 4: Moving In & Beyond (Months 10-12) - "Triumph and Inspiration"</h4>
+                    <p><strong>Emotional Core:</strong> Victory, ownership, pride, inspiration, paying it forward</p>
+                    <p><strong>Primary Content Themes:</strong></p>
+                    <ul>
+                        <li>First night in the new home - the moment of victory</li>
+                        <li>Systems working - solar providing power, water flowing</li>
+                        <li>Kids thriving in their new environment</li>
+                        <li>Expansion plans - adding space as family grows</li>
+                        <li>Teaching others - sharing knowledge and blueprint</li>
+                        <li>Reflection on the journey and transformation</li>
+                        <li>Future goals and continued growth</li>
+                    </ul>
+                    <p><strong>Product Integration Opportunities:</strong> Home finishing touches, sustainable living products, expansion materials, homesteading supplies</p>
+                    <p><strong>Key Milestones:</strong> Move-in complete, fully functional home, first harvest from garden, hosting first guest</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="content-schedule">
+            <h2>Comprehensive Content Production Schedule</h2>
+            
+            <h3>Daily/Weekly Content Cadence</h3>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Content Type</th>
+                        <th>Platform</th>
+                        <th>Focus</th>
+                        <th>Duration/Format</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Monday</strong></td>
+                        <td>Motivation Monday</td>
+                        <td>TikTok</td>
+                        <td>Week ahead preview, goals, inspiration</td>
+                        <td>30-60 sec</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tuesday</strong></td>
+                        <td>Tutorial Tuesday</td>
+                        <td>TikTok</td>
+                        <td>How-to content, budget tips, DIY hacks</td>
+                        <td>60-90 sec</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wednesday</strong></td>
+                        <td>Progress Update</td>
+                        <td>TikTok</td>
+                        <td>Savings tracker, build progress, wins</td>
+                        <td>30-60 sec</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Thursday</strong></td>
+                        <td>Homeschool Highlight</td>
+                        <td>TikTok</td>
+                        <td>Kids' education, special needs tips, learning</td>
+                        <td>60 sec</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Friday</strong></td>
+                        <td>Behind the Scenes</td>
+                        <td>TikTok</td>
+                        <td>Real life, challenges, authentic moments</td>
+                        <td>60-90 sec</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Saturday</strong></td>
+                        <td>Partner Spotlight</td>
+                        <td>TikTok</td>
+                        <td>Product features, brand partnerships</td>
+                        <td>60-90 sec</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sunday</strong></td>
+                        <td>Weekly Recap</td>
+                        <td>TikTok + Long Form</td>
+                        <td>Week in review, gratitude, next steps</td>
+                        <td>2-5 min</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Monthly Content Calendar Structure</h3>
+            <div class="content-card">
+                <h4>Week 1: Foundation Setting</h4>
+                <ul>
+                    <li>Monthly goals announcement</li>
+                    <li>Budget breakdown and planning</li>
+                    <li>Major milestone preview</li>
+                    <li>Community Q&A</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h4>Week 2: Action and Progress</h4>
+                <ul>
+                    <li>Daily grind content - work, kids, hustle</li>
+                    <li>Product testing and reviews</li>
+                    <li>Tutorial and educational content</li>
+                    <li>Partner collaboration content</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h4>Week 3: Challenges and Solutions</h4>
+                <ul>
+                    <li>Problem-solving content</li>
+                    <li>Setback transparency</li>
+                    <li>Community support highlights</li>
+                    <li>Learning moments</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h4>Week 4: Wins and Reflection</h4>
+                <ul>
+                    <li>Progress celebration</li>
+                    <li>Monthly savings reveal</li>
+                    <li>Milestone achievements</li>
+                    <li>Looking ahead to next month</li>
+                </ul>
+            </div>
+
+            <h3>Special Content Events</h3>
+            <ul style="font-size: 1.1rem;">
+                <li><strong>Live Streams:</strong> 2x monthly - real-time progress updates, Q&A, behind-the-scenes</li>
+                <li><strong>Land Auction Livestream:</strong> Real-time bidding and land purchase moment</li>
+                <li><strong>Build Day Series:</strong> Full-day documentation of major construction milestones</li>
+                <li><strong>Move-In Special:</strong> 24-hour content marathon documenting first night in new home</li>
+                <li><strong>Monthly Recap Video:</strong> 5-10 minute edited highlight reel of the month</li>
+                <li><strong>Partner Takeovers:</strong> Brands host content for day, showcasing products in action</li>
+            </ul>
+        </section>
+
+        <section id="filming-plan">
+            <h2>Filming & Production Plan</h2>
+            
+            <h3>Equipment & Setup</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div class="content-card">
+                    <h4>Current Equipment</h4>
+                    <ul>
+                        <li>Smartphone (primary camera)</li>
+                        <li>Ring light for indoor content</li>
+                        <li>Tripod for static shots</li>
+                        <li>Lavalier mic for clear audio</li>
+                        <li>Natural lighting optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h4>Production Workflow</h4>
+                    <ul>
+                        <li><strong>Batch Filming:</strong> 2 days/week dedicated to filming 2 weeks of content</li>
+                        <li><strong>B-Roll Collection:</strong> Daily 15-min capture of organic moments</li>
+                        <li><strong>Editing Schedule:</strong> 1-2 hours daily for quick turnaround</li>
+                        <li><strong>Publishing:</strong> Scheduled posts for consistency</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h4>Content Organization</h4>
+                    <ul>
+                        <li>Cloud storage for all raw footage</li>
+                        <li>Organized folder system by month/theme</li>
+                        <li>Content calendar tracking sheet</li>
+                        <li>Analytics dashboard monitoring</li>
+                        <li>Partner content separate archive</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Filming Locations & Scenarios</h3>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Content Type</th>
+                        <th>Frequency</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Suite Interior</strong></td>
+                        <td>Daily life, homeschool, work</td>
+                        <td>Daily</td>
+                        <td>Morning routines, budget planning, work sessions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kitchen/Meal Prep</strong></td>
+                        <td>Budget meals, snack box prep</td>
+                        <td>3x week</td>
+                        <td>$5 dinner challenges, bulk cooking, snack box packaging</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Land Sites</strong></td>
+                        <td>Research, auctions, exploration</td>
+                        <td>Weekly (M4-6)</td>
+                        <td>Auction attendance, land tours, soil testing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Construction Site</strong></td>
+                        <td>Build progress, hands-on work</td>
+                        <td>Daily (M7-12)</td>
+                        <td>Foundation work, pod installation, system setup</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Community Spaces</strong></td>
+                        <td>Resource access, networking</td>
+                        <td>2x month</td>
+                        <td>Food pantry, library, homeschool co-op</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Shot List Templates</h3>
+            <div class="content-card">
+                <h4>Daily Routine Video Template</h4>
+                <ol style="font-size: 1.1rem; line-height: 1.8;">
+                    <li>Opening hook (3-5 sec): "Day [X] of building our freedom..."</li>
+                    <li>Morning with kids (10 sec): Breakfast, getting started</li>
+                    <li>Work segment (10 sec): AI training job or content creation</li>
+                    <li>Homeschool moment (10 sec): Kids learning, special needs support</li>
+                    <li>Progress update (10 sec): Savings, build, business</li>
+                    <li>Challenge/win (10 sec): Real moment, authentic emotion</li>
+                    <li>Call to action (5 sec): Follow for tomorrow, partner mention</li>
+                </ol>
+            </div>
+
+            <div class="content-card">
+                <h4>Product Integration Template</h4>
+                <ol style="font-size: 1.1rem; line-height: 1.8;">
+                    <li>Problem introduction (5 sec): "We needed a solution for..."</li>
+                    <li>Product reveal (5 sec): Unboxing or first look</li>
+                    <li>Real-world application (20 sec): Using product in authentic scenario</li>
+                    <li>Results (10 sec): How it solved problem, improved life</li>
+                    <li>Kids' reaction (10 sec): If applicable, children's honest feedback</li>
+                    <li>Link/info (5 sec): Where to find, partnership mention</li>
+                </ol>
+            </div>
+
+            <div class="content-card">
+                <h4>Milestone Moment Template</h4>
+                <ol style="font-size: 1.1rem; line-height: 1.8;">
+                    <li>Journey recap (10 sec): "We started with... now we're..."</li>
+                    <li>The moment (15 sec): Real-time milestone achievement</li>
+                    <li>Emotional reaction (10 sec): Authentic tears, joy, celebration</li>
+                    <li>Kids involved (10 sec): Family sharing the win</li>
+                    <li>Gratitude (10 sec): Thanking supporters, partners, community</li>
+                    <li>What's next (5 sec): Teasing next goal</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="episode-arcs">
+            <h2>Episode Writing & Narrative Arcs</h2>
+            
+            <h3>Month 1: "The First Steps"</h3>
+            <div class="episode-arc">
+                <h4>Episode 1.1: "Moving Day - Our New Beginning"</h4>
+                <p><strong>Narrative:</strong> Raw, emotional first day in the suite. Boxes everywhere, kids adjusting, Victoria's determination visible. Contrast between leaving abuse and embracing possibility.</p>
+                <p><strong>Key Beats:</strong> Unpacking, kids exploring new space, first meal in new home, budget planning begins</p>
+                <p><strong>Emotional Arc:</strong> Overwhelmed → Hopeful → Determined</p>
+            </div>
+
+            <div class="episode-arc">
+                <h4>Episode 1.2: "The $4000 Budget Blueprint"</h4>
+                <p><strong>Narrative:</strong> Victoria breaks down exactly how $4000 supports three kids. Transparent spreadsheet, tough choices, creative solutions. Educational and relatable.</p>
+                <p><strong>Key Beats:</strong> Rent paid, bills organized, food budget, savings plan, emergency fund started</p>
+                <p><strong>Emotional Arc:</strong> Anxiety → Planning → Control</p>
+            </div>
+
+            <div class="episode-arc">
+                <h4>Episode 1.3: "Homeschool Starts & Special Needs Success"</h4>
+                <p><strong>Narrative:</strong> Setting up homeschool routines with two young kids and one special needs teen. Challenges, adaptations, small victories that matter.</p>
+                <p><strong>Key Beats:</strong> Materials arrive, first lesson, accommodations working, teen's progress celebrated</p>
+                <p><strong>Emotional Arc:</strong> Nervous → Adaptive → Proud</p>
+            </div>
+
+            <div class="episode-arc">
+                <h4>Episode 1.4: "The Side Hustle Launches"</h4>
+                <p><strong>Narrative:</strong> Balancing 60-hour AI training job with launching snack box business and AI app. Exhaustion meets determination. First sales celebrated.</p>
+                <p><strong>Key Beats:</strong> First snack box packed, DoorDash delivery, AI app beta users, late night work sessions</p>
+                <p><strong>Emotional Arc:</strong> Exhausted → Hustling → Victorious</p>
+            </div>
+
+            <h3>Month 4: "The Hunt Begins"</h3>
+            <div class="episode-arc">
+                <h4>Episode 4.1: "First Auction - Learning the Game"</h4>
+                <p><strong>Narrative:</strong> Victoria attends first sheriff's sale with real estate knowledge. Nervous excitement, learning process, networking with regulars. Doesn't win but gains valuable intel.</p>
+                <p><strong>Key Beats:</strong> Auction house arrival, registration, watching bidding, talking to sellers, taking notes</p>
+                <p><strong>Emotional Arc:</strong> Intimidated → Observant → Strategic</p>
+            </div>
+
+            <div class="episode-arc">
+                <h4>Episode 4.2: "We Found It - The Land"</h4>
+                <p><strong>Narrative:</strong> THE moment. Victoria discovers the perfect plot at auction. Within budget, good zoning, location works. Kids see it for first time. Dreams becoming tangible.</p>
+                <p><strong>Key Beats:</strong> Finding listing, visiting land, kids running on property, measuring, imagining home placement</p>
+                <p><strong>Emotional Arc:</strong> Searching → Discovering → Believing</p>
+            </div>
+
+            <h3>Month 7: "Breaking Ground"</h3>
+            <div class="episode-arc">
+                <h4>Episode 7.1: "Land is OURS - Closing Day"</h4>
+                <p><strong>Narrative:</strong> High emotion as land purchase finalizes. Victoria with paperwork, keys (if applicable), official ownership. Kids planting first flag on THEIR land.</p>
+                <p><strong>Key Beats:</strong> Signing papers, official handover, driving to land as owners, kids' reactions, celebrating</p>
+                <p><strong>Emotional Arc:</strong> Anxious → Official → Overjoyed</p>
+            </div>
+
+            <div class="episode-arc">
+                <h4>Episode 7.2: "Pod Delivery Day"</h4>
+                <p><strong>Narrative:</strong> Massive truck arrives with container/pod home. Neighbors watching, kids in awe, Victoria directing placement. Dream materializing in physical form.</p>
+                <p><strong>Key Beats:</strong> Truck arrival, unloading process, placement, first walk-through, measurements confirmed</p>
+                <p><strong>Emotional Arc:</strong> Anticipation → Awe → Reality</p>
+            </div>
+
+            <h3>Month 12: "Coming Home"</h3>
+            <div class="episode-arc">
+                <h4>Episode 12.1: "The Final Walk-Through"</h4>
+                <p><strong>Narrative:</strong> Everything complete. Victoria walking through finished home, systems working, kids' rooms ready. Reflection on 12-month journey from suite to ownership.</p>
+                <p><strong>Key Beats:</strong> Each room revealed, systems demonstrated, kids claiming spaces, before/after comparisons</p>
+                <p><strong>Emotional Arc:</strong> Nostalgic → Grateful → Triumphant</p>
+            </div>
+
+            <div class="episode-arc">
+                <h4>Episode 12.2: "First Night Home"</h4>
+                <p><strong>Narrative:</strong> THE moment. First dinner in their home, first bedtime, kids settled, Victoria reflecting. Full circle from episode 1.1 moving into suite.</p>
+                <p><strong>Key Beats:</strong> Cooking first meal, family dinner, bedtime routines, Victoria's closing monologue to camera</p>
+                <p><strong>Emotional Arc:</strong> Joyful → Peaceful → Hopeful for future</p>
+                <p><strong>Closing Message:</strong> "If we can do this, so can you. This is just the beginning."</p>
+            </div>
+        </section>
+
+        <section id="timeline">
+            <h2>12-Month Production Timeline</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Act</th>
+                        <th>Content Focus</th>
+                        <th>Major Milestones</th>
+                        <th>Partner Opportunities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1-3</strong></td>
+                        <td>Act 1</td>
+                        <td>Starting Over, Daily Life, Budgeting, Homeschool Setup</td>
+                        <td>First $1K saved, Snack box launch, AI app beta</td>
+                        <td>Home organization, budget tools, educational materials</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4-6</strong></td>
+                        <td>Act 2</td>
+                        <td>Land Hunting, Savings Growth, Business Scaling</td>
+                        <td>$15K saved, Land secured, Partnerships signed</td>
+                        <td>Land research tools, sustainable materials testing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7-9</strong></td>
+                        <td>Act 3</td>
+                        <td>Construction, Building, Systems Installation</td>
+                        <td>Pod placed, Solar installed, Structure up</td>
+                        <td>Construction tools, solar systems, building materials</td>
+                    </tr>
+                    <tr>
+                        <td><strong>10-12</strong></td>
+                        <td>Act 4</td>
+                        <td>Finishing, Moving In, Thriving</td>
+                        <td>Move-in complete, Systems functioning, Expansion begins</td>
+                        <td>Home finishing, sustainable living, expansion products</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="partners">
+            <h2>Strategic Partnership Opportunities</h2>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h4>🏗️ Construction & Development</h4>
+                    <p><strong>Need:</strong> Expertise, materials discount, or sponsorship for pod/container home build</p>
+                    <p><strong>You Get:</strong> Real-world proof of concept for affordable housing prototype, millennial/Gen Z visibility, innovation storytelling, documented case study</p>
+                    <p><strong>Deliverables:</strong> 50+ content pieces, build documentation, white paper on process, media coverage</p>
+                    <p><strong>Ideal Partners:</strong> Skanska, Boxabl, Container home manufacturers</p>
+                </div>
+                
+                <div class="partner-card">
+                    <h4>☀️ Solar & Sustainable Energy</h4>
+                    <p><strong>Need:</strong> Solar panel system, battery backup, off-grid energy solutions</p>
+                    <p><strong>You Get:</strong> Before/after energy independence story, product testing in real conditions, sustainability credibility, installation documentation</p>
+                    <p><strong>Deliverables:</strong> Installation series, performance tracking, cost savings reports, educational content</p>
+                    <p><strong>Ideal Partners:</strong> Goal Zero, Jackery, Renogy, Anker (existing relationship)</p>
+                </div>
+                
+                <div class="partner-card">
+                    <h4>🛠️ Home & Building Products</h4>
+                    <p><strong>Need:</strong> Tools, materials, fixtures, sustainable building products</p>
+                    <p><strong>You Get:</strong> Product demos in authentic use, DIY audience reach, TikTok Shop integration, proven 3% conversion rate</p>
+                    <p><strong>Deliverables:</strong> Product testing videos, tutorials, shopping links, conversion tracking</p>
+                    <p><strong>Ideal Partners:</strong> Temu brands, TikTok Shop vendors, DeWalt, Ryobi</p>
+                </div>
+                
+                <div class="partner-card">
+                    <h4>🏡 Alternative Housing Manufacturers</h4>
+                    <p><strong>Need:</strong> Pod homes, container conversions, tiny home kits, modular solutions</p>
+                    <p><strong>You Get:</strong> 12-month case study, family use documentation, proof of livability, high-quality promotional content, testimonials</p>
+                    <p><strong>Deliverables:</strong> Full build documentation, family testimonials, year-in-review, expansion planning</p>
+                    <p><strong>Ideal Partners:</strong> Amazon Structures, Boxabl, Tumbleweed</p>
+                </div>
+                
+                <div class="partner-card">
+                    <h4>💧 Water & Septic Solutions</h4>
+                    <p><strong>Need:</strong> Water storage, filtration, composting toilet, greywater systems</p>
+                    <p><strong>You Get:</strong> Off-grid living validation, product education content, sustainability audience, installation how-tos</p>
+                    <p><strong>Deliverables:</strong> System installation series, maintenance guides, cost analysis, performance reviews</p>
+                    <p><strong>Ideal Partners:</strong> Nature's Head, Berkey, RainHarvest Systems</p>
+                </div>
+                
+                <div class="partner-card">
+                    <h4>📚 Education & Homeschool</h4>
+                    <p><strong>Need:</strong> Curriculum support, educational tech, special needs resources</p>
+                    <p><strong>You Get:</strong> Homeschool audience (rapidly growing market), special needs advocacy, real family use cases, daily documentation</p>
+                    <p><strong>Deliverables:</strong> Daily homeschool content, special needs tips, curriculum reviews, family testimonials</p>
+                    <p><strong>Ideal Partners:</strong> Khan Academy, ABCmouse, IXL Learning</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skanska">
+            <h2>The Skanska Opportunity</h2>
+            <h3 style="color: #E67E22;">Prototype for Millennial Economic Housing Solutions</h3>
+            
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.8;">Skanska has a unique opportunity to position itself as the innovation leader in addressing the millennial housing crisis—the most pressing infrastructure challenge of this generation. Partner with a proven content creator on a documented, real-world prototype that demonstrates affordable, sustainable housing is achievable.</p>
+            
+            <div class="value-props">
+                <div class="value-prop">
+                    <h4>Innovation R&D</h4>
+                    <p>This is market research disguised as content. Gain real-world data on what works, what doesn't, and what millennials actually need in affordable housing—insights worth far more than the investment.</p>
+                </div>
+                
+                <div class="value-prop">
+                    <h4>Measurable Impact</h4>
+                    <p>Partner with a creator who delivers: 1M+ monthly impressions, 7-8% engagement (vs 1-3% standard), 3% conversion (vs 0.5-1% average). Victoria has proven she can drive results for brands.</p>
+                </div>
+                
+                <div class="value-prop">
+                    <h4>Sustainability Leadership</h4>
+                    <p>Demonstrate genuine commitment to sustainable building with a documented 12-month case study. This reaches eco-conscious younger demographics authentically, not through traditional advertising.</p>
+                </div>
+                
+                <div class="value-prop">
+                    <h4>Social Impact Story</h4>
+                    <p>Construction helping a family escape abuse and achieve the American Dream. This positions Skanska as a force for social good—powerful narrative for recruiting, PR, and corporate responsibility goals.</p>
+                </div>
+                
+                <div class="value-prop">
+                    <h4>Media Value</h4>
+                    <p>$50K-$100K+ in organic reach, media coverage potential (local to national), industry publication features, award opportunities, and content Skanska can use for years in recruiting and marketing.</p>
+                </div>
+                
+                <div class="value-prop">
+                    <h4>Scalable Blueprint</h4>
+                    <p>If successful, this becomes a replicable model. Help one family, learn from it, then scale to help hundreds or thousands. Skanska could lead the affordable housing innovation space.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem;">What Skanska Provides</h3>
+            <div class="content-card">
+                <ul style="font-size: 1.1rem;">
+                    <li><strong>Technical Consultation:</strong> Site selection guidance, zoning compliance, build design review, safety protocols</li>
+                    <li><strong>Materials Support:</strong> Discounted or sponsored materials for foundation, structure, utilities</li>
+                    <li><strong>Project Management:</strong> Timeline guidance, phase planning, contractor recommendations, quality oversight</li>
+                    <li><strong>Brand Integration:</strong> Co-branded content series, joint PR opportunities, media partnerships</li>
+                    <li><strong>Future Vision:</strong> If successful, potential to scale into Skanska affordable housing initiative</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Skanska ROI</h3>
+            <div class="content-card">
+                <ul style="font-size: 1.1rem;">
+                    <li>Brand exposure to 10.6K+ engaged followers with 1M+ monthly impressions</li>
+                    <li>50+ co-branded content pieces over 12 months</li>
+                    <li>Documented case study for proposals, industry presentations, white papers</li>
+                    <li>Media coverage (local news, industry publications, potential national features)</li>
+                    <li>Recruitment content showing Skanska innovation and social responsibility</li>
+                    <li>R&D data on millennial housing preferences and sustainable building practices</li>
+                    <li>Partnership with Top 20% ranked creator who's delivered for premium brands</li>
+                    <li>Content usage rights for Skanska marketing in perpetuity</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="revenue">
+            <h2>Revenue Model & Financial Projections</h2>
+            
+            <h3>Multiple Revenue Streams</h3>
+            <div class="revenue-breakdown">
+                <div class="revenue-item">
+                    <div>Major Brand Partnership</div>
+                    <div class="revenue-amount">$5K-$15K</div>
+                    <div>Full 12-month package</div>
+                </div>
+                
+                <div class="revenue-item">
+                    <div>Product Sponsorships</div>
+                    <div class="revenue-amount">$500-$2K</div>
+                    <div>Per partnership (multiple)</div>
+                </div>
+                
+                <div class="revenue-item">
+                    <div>TikTok Shop</div>
+                    <div class="revenue-amount">$300-$800</div>
+                    <div>Monthly commissions</div>
+                </div>
+                
+                <div class="revenue-item">
+                    <div>Temu Affiliates</div>
+                    <div class="revenue-amount">$200-$500</div>
+                    <div>Monthly commissions</div>
+                </div>
+                
+                <div class="revenue-item">
+                    <div>Snack Box Sales</div>
+                    <div class="revenue-amount">$800+</div>
+                    <div>Monthly (DoorDash)</div>
+                </div>
+                
+                <div class="revenue-item">
+                    <div>AI App</div>
+                    <div class="revenue-amount">$200-$500</div>
+                    <div>Monthly (post-launch)</div>
+                </div>
+            </div>
+
+            <h3>Partner ROI Breakdown</h3>
+            <div class="content-card">
+                <h4>Estimated Media Value: $50,000-$100,000+ over 12 months</h4>
+                <p style="font-size: 1rem; margin-top: 1rem;">📍 Location: Overland Park, Kansas | 🎯 Platform: TikTok 10.6K+ | 🏆 Top 20% Ranked Creator</p>
+                <p style="font-size: 1rem;"><strong>Representation:</strong> Talenture Agency (3yr) • Shop Agency (2yr)</p>
+                <p style="font-size: 1rem; margin-top: 1rem;"><em>Ready to start: Immediately | Timeline: 12 months | Investment needed: $25K-$30K for complete build</em></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Update active state
+                    document.querySelectorAll('.side-nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Update active nav on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section, .hero').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.side-nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>-size: 1.1rem; margin-top: 1rem; line-height: 1.8;">Based on industry standards for micro-influencers (10K-50K followers) with high engagement rates:</p>
+                <ul style="font-size: 1.1rem;">
+                    <li><strong>Cost per post:</strong> $1,000-$1,500 for sponsored TikTok content at this tier</li>
+                    <li><strong>Total posts:</strong> 50+ branded content pieces = $50,000-$75,000 value</li>
+                    <li><strong>Engagement multiplier:</strong> 7-8% engagement vs 1-3% standard = 2-3x higher value</li>
+                    <li><strong>Conversion bonus:</strong> 3% live conversion vs 0.5-1% average = 3-6x better ROI</li>
+                    <li><strong>Long-form documentary:</strong> Story-driven series adds 30-50% premium over standalone posts</li>
+                    <li><strong>Usage rights:</strong> Partners can repurpose content across their own channels</li>
+                </ul>
+            </div>
+
+            <h3>Financial Transparency Commitment</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8;">All partners receive monthly performance reports including:</p>
+            <ul style="font-size: 1.1rem;">
+                <li>Detailed analytics: views, engagement, click-through rates</li>
+                <li>Conversion tracking: sales attributed to content</li>
+                <li>Audience insights: demographics, growth, sentiment</li>
+                <li>Content performance: top posts, optimization opportunities</li>
+                <li>Competitive benchmarking: how we stack against industry standards</li>
+            </ul>
+        </section>
+
+        <section id="deliverables">
+            <h2>Partner Deliverables Package</h2>
+            
+            <h3>Tier 1: Major Partner ($10K-$15K Investment)</h3>
+            <div class="content-card">
+                <ul style="font-size: 1.1rem;">
+                    <li>50+ branded content pieces over 12 months</li>
+                    <li>Exclusive category partnership (only solar partner, only building partner, etc.)</li>
+                    <li>Co-branded documentary series naming rights</li>
+                    <li>Monthly detailed performance reports with analytics</li>
+                    <li>Quarterly strategy sessions with Victoria and agencies</li>
+                    <li>Full content usage rights for partner marketing</li>
+                    <li>Speaking opportunities at partner events</li>
+                    <li>Case study white paper co-authored</li>
+                    <li>Media kit with professional photos and video assets</li>
+                    <li>Priority placement in all multi-partner content</li>
+                </ul>
+            </div>
+
+            <h3>Tier 2: Supporting Partner ($3K-$5K Investment)</h3>
+            <div class="content-card">
+                <ul style="font-size: 1.1rem;">
+                    <li>20-30 branded content pieces over 12 months</li>
+                    <li>Featured product integration in relevant episodes</li>
+                    <li>Monthly performance reports</li>
+                    <li>Bi-annual strategy check-ins</li>
+                    <li>Content usage rights for specific deliverables</li>
+                    <li>Logo placement in credits/descriptions</li>
+                    <li>Inclusion in case study materials</li>
+                    <li>Select media assets for partner use</li>
+                </ul>
+            </div>
+
+            <h3>Tier 3: Product Partner ($500-$2K Product Value)</h3>
+            <div class="content-card">
+                <ul style="font-size: 1.1rem;">
+                    <li>5-10 branded content pieces featuring product</li>
+                    <li>Honest product reviews and demonstrations</li>
+                    <li>Performance tracking for featured content</li>
+                    <li>Tag mentions and affiliate linking where applicable</li>
+                    <li>Inclusion in partner roster</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="cta-section" id="contact">
+            <h2>Let's Build Something Revolutionary Together</h2>
+            <p style="font-size: 1.3rem; margin: 2rem 0; line-height: 1.8;">This isn't just about one family's journey—it's about proving that sustainable homeownership is possible for millions of millennials who've been priced out of traditional housing. Be part of the solution with a creator who has proven she delivers results.</p>
+            
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">Partner with a real story, real struggle, and real triumph. Documented professionally. Delivered authentically. Measured meticulously.</p>
+            
+            <div class="cta-buttons">
+                <a href="mailto:Victoria.mcgowan84@gmail.com" class="btn btn-primary">📧 Email Victoria</a>
+                <a href="https://wa.me/19139442393" class="btn btn-secondary">💬 WhatsApp</a>
+                <a href="https://forms.gle/DQtbYpoYttpLGu9ZA" class="btn btn-primary">🔥 Partnership Form</a>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h4>📧 Email</h4>
+                    <p>Victoria.mcgowan84@gmail.com</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>📱 WhatsApp</h4>
+                    <p>+1 (913) 944-2393</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4>💬 Discord</h4>
+                    <p>JadeSunshiine#2061</p>
+                </div>
+
+                <div class="contact-card">
+                    <h4>🔥 Portfolio</h4>
+                    <p><a href="https://fyrepaws.github.io/Portfolio-/" style="color: white; text-decoration: underline;">View Full Work</a></p>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid rgba(255,255,255,0.3);">
+                <h3 style="color: white; margin-bottom: 1.5rem;">Creator Profile</h3>
+                <p style="font-size: 1.1rem;"><strong>Victoria McGowan</strong> | FYRE Army Founder</p>
+                <p style="font
